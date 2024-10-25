@@ -92,6 +92,7 @@
   max-width: 500px;
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: rgb(70, 69, 69);
 }
 
 .modal-close {
@@ -457,6 +458,7 @@ body.active {
 
 .footer-about p {
   margin: 0;
+
 }
 
 .footer-links ul,
@@ -556,7 +558,7 @@ body.active-modal {
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
-  background: #f1f1f1;
+  background: gray;
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 600px;
