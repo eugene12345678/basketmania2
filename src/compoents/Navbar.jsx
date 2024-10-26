@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SignUpModal from './SignupModal';
-import LoginModal from './LoginModal'; // Import LoginModal
 import About from './About';
 import '../App.css';
 
-const Navbar = ({ onLoginClick }) => {
+const Navbar = () => {
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);  
   const navigate = useNavigate();
@@ -35,15 +34,15 @@ const Navbar = ({ onLoginClick }) => {
       <div className="navbar-right">
         <ul className="navbar-links">
           <li><Link to="/home" onClick={handleHomeClick}>Home</Link></li>
-          <li><span onClick={openAbout} style={{ cursor: 'pointer' }}>About</span></li>  
-          <li><button onClick={onLoginClick} style={{ cursor: 'pointer' }}>Login</button></li> {/* Trigger LoginModal */}
+          <li><span onClick={openAbout} style={{ cursor: 'pointer' }}>About</span></li>  {/* Use button to trigger About modal */}
           <li><button onClick={openSignInModal} style={{ cursor: 'pointer' }}>Sign Up</button></li>
         </ul>
       </div>
       <SignUpModal isOpen={isSignInModalOpen} onClose={closeSignInModal} />
-      <About isOpen={isAboutModalOpen} onClose={closeAbout} />  
+      <About isOpen={isAboutModalOpen} onClose={closeAbout} />  {/* Render the About modal */}
     </nav>
   );
 };
 
-export default Navbar;
+export default Navbar
+
