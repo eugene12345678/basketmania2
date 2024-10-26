@@ -1,3 +1,4 @@
+// ProtectedRoute.jsx
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ const ProtectedRoute = ({ isAuthenticated, children }) => {
     return <Navigate to="/signup" replace />;
   }
 
-  return children;
+  return children; // Render the children if authenticated
 };
 
 export default ProtectedRoute;
