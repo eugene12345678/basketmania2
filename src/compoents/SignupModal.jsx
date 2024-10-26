@@ -1,9 +1,9 @@
 import React from 'react';
-import '../App.css';
+import '../App.css'; // Ensure your CSS file is correctly imported
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const SignUpModal = ({ isOpen, onClose }) => {
+const SignUpModal = ({ isOpen, onClose, onAuthSuccess }) => {
   if (!isOpen) return null;
 
   const formik = useFormik({
@@ -28,7 +28,7 @@ const SignUpModal = ({ isOpen, onClose }) => {
 
     onSubmit: async (values) => {
       try {
-        const response = await fetch('https://basketmania-1-r1rb.onrender.com/signup', { 
+        const response = await fetch('https://basketmania-2.onrender.com/signup', { 
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -44,6 +44,7 @@ const SignUpModal = ({ isOpen, onClose }) => {
         
         if (response.ok) {
           console.log('User created successfully:', data);
+          onAuthSuccess(); // Call onAuthSuccess on successful signup
           onClose(); // Close the modal after successful sign-up
         } else {
           console.error('Error signing up:', data.error);
@@ -53,6 +54,7 @@ const SignUpModal = ({ isOpen, onClose }) => {
       }
     },
   });
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -122,4 +124,5 @@ const SignUpModal = ({ isOpen, onClose }) => {
     </div>
   );
 };
+
 export default SignUpModal;
