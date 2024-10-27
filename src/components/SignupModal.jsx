@@ -118,7 +118,7 @@ const SignUpModal = ({ isOpen, onClose, onAuthSuccess }) => {
             ) : null}
           </span>
           <input className="submit" type="submit" value="Sign Up" />
-          <span className="span">Already have an account? <a href="#">Log in</a></span>
+          {/* <span className="span">Already have an account? <a href="#">Log in</a></span> */}
         </form>
       </div>
     </div>
